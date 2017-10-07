@@ -5,4 +5,9 @@ html {
 
 p {
         font-size: 100px;
+        text-align: center;
+}
+
+#player {
+        text-align: center;        
 }
