@@ -1,0 +1,13 @@
+html {
+        font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,
+        Helvetica Neue, Arial,sans-serif;
+}
+
+p {
+        font-size: 100px;
+        text-align: center;
+}
+
+#player {
+        text-align: center;        
+}
