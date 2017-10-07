@@ -1,14 +1,17 @@
 function onLoad(){
-	if (Modernizr.getusermedia){
-		alert("Good to go");
-		navigator.getUserMedia({audio: true})
-		//Do voice capture
-	}
-	else{
-		alert(Modernizr.getusermedia);
+	navigator.getUserMedia  = navigator.getUserMedia ||
+                  navigator.webkitGetUserMedia ||
+                  navigator.mozGetUserMedia ||
+                  navigator.msGetUserMedia;
 
-		//Do text instead
-	}
+        if (navigator.getUserMedia){
+        	alert("We're in");
+        	navigator.getUserMedia({audio: true});
+        }
+        else {
+        	alert("No audio capabilities");
+        }
+
 
 
 }
