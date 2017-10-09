@@ -3,7 +3,7 @@
 
 ## What is it?
 
-> This is a demo to show how a speaker improve a moment in a person's day.
+> This is a demo exhibiting one way to use speakers to improve someone's daily life.
 
 ## How does it work?
 
