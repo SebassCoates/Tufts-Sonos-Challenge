@@ -83,10 +83,13 @@ function naturalLang(transcript){
 
 	request.onreadystatechange = function (){
 		if (request.readyState === XMLHttpRequest.DONE) {
-			console.log(request.responseText);
+			result = request.responseText;
+			console.log(result);
 			updateUI(function (){
+				pickSong(result);
 				$("#prompt").css("display", "none");
 				$("#player").css("display", "block");
+				
 			});
 
 		} else {
