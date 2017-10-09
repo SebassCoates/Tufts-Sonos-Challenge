@@ -3,11 +3,10 @@ SONG_DICT["negative"] = "https://open.spotify.com/embed?uri=spotify:user:erebore
 SONG_DICT["positive"] = "https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:37i9dQZF1DX9XIFQuFvzM4";
 
 function pickSong(responseText){
-
-        sentObject = JSON.parse(responseText);
-        sentiment = sentObject.sentences.sentiment.score;
-
-        player = document.getElementById('main-content').remove();
+        
+        json = JSON.parse(responseText);
+        console.log(json);        
+        sentiment = json.documentSentiment.score;
 
         if (sentiment < 0) {
                 document.getElementById('player').src=SONG_DICT["negative"];
