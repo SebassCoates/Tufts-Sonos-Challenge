@@ -34,6 +34,7 @@ function speechRecognition(){
 }
 
 function getKeyboardText(){
+	document.getElementById('start').style.visibility = "hidden";
 	document.getElementById('input').style.visibility = "visible";
 	document.getElementById('button').style.visibility = "visible";
 }
