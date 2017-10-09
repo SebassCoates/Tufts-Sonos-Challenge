@@ -89,7 +89,7 @@ function naturalLang(transcript){
 				pickSong(result);
 				$("#prompt").css("display", "none");
 				$("#player").css("display", "block");
-				
+				simulateClick();
 			});
 
 		} else {
