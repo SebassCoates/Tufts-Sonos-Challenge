@@ -1,11 +1,10 @@
 API_KEY = 'AIzaSyCgHIuhsWBBgUOMtmuOc4td5SWrLiPboEE';
 
-
+evenClick = false;
 
 function onLoad(){
 
-	speechRecognition();
-
+	$("#start").click(toggleRecording);
 }
 
 function speechRecognition(){
@@ -20,35 +19,17 @@ function speechRecognition(){
 			sampleRate: 41000,
 		}
 
-		var recordRTC = RecordRTC(stream, options);
+		recordRTC = RecordRTC(stream, options);
+		recordRTC.startRecording();
 
-		$("#start").click(function(){
-			recordRTC.startRecording();
+		updateUI(function (){
+			$("#mic").removeClass("fa-microphone-slash")
+				   .addClass("fa-microphone");
 		});
-
-		$("#stop").click(function(){
-			recordRTC.stopRecording(function(audioURL) {
-
-				var blob = recordRTC.getBlob();
-				var filereader = new FileReader();
-
-				// This is where the magic happens
-				filereader.onload = function(event){
-					var data = this.result.split(",")[1];
-					getTranscription(data);
-				}
-
-				// Converts audio to base64 string
-				filereader.readAsDataURL(blob); 
-			});
-		});	
 	})
 	.catch(console.log("permission exception caught"));
 }
 
-function sentimentAnalysis(data){
-	console.log(data);
-}
 
 function getTranscription(newVoice){
 	console.log("starting upload");
@@ -77,10 +58,7 @@ function getTranscription(newVoice){
 			// Takes the transcript from voice to text
 			// and gets sentiment analysis value
 			naturalLang(responseJson.results[0].alternatives[0].transcript);
-
-		} else {
-			// Not ready yet.
-		}	
+		} 	
 	}
 	console.log("upload done");
 }
@@ -89,7 +67,8 @@ function naturalLang(transcript){
 	var request = new XMLHttpRequest();
 
 	request.open("POST",
-	 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + API_KEY,
+	 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' 
+	 + API_KEY,
 	  true)
 	
 	request.send(JSON.stringify({
@@ -107,5 +86,38 @@ function naturalLang(transcript){
 		} else {
 			// Not ready yet.
 		}	
+	}
+}
+
+function updateUI(func){
+	func();
+}
+
+function toggleRecording(){
+	evenClick = !evenClick
+	
+	if (evenClick){ 
+		speechRecognition();
+	}
+	else {
+		updateUI(function (){
+			$("#mic").removeClass("fa-microphone")
+			         .addClass("fa-microphone-slash");
+		});
+		
+		recordRTC.stopRecording(function(audioURL) {
+
+			var blob = recordRTC.getBlob();
+			var filereader = new FileReader();
+
+			// Callback when reader finishes reading
+			filereader.onload = function(event){
+				var data = this.result.split(",")[1];
+				getTranscription(data);
+			}
+
+			// Converts audio to base64 string
+			filereader.readAsDataURL(blob); 
+		});
 	}
 }
