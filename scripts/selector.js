@@ -5,7 +5,7 @@ SONG_DICT["positive"] = "https://open.spotify.com/embed?uri=spotify:user:erebore
 function pickSong(responseText){
 
         sentObject = JSON.parse(responseText);
-        sentiment = sentObject.sentiment.score;
+        sentiment = sentObject.sentences.sentiment.score;
 
         player = document.getElementById('main-content').remove();
 
