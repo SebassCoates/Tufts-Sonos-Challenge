@@ -25,6 +25,8 @@ function speechRecognition(){
 		updateUI(function (){
 			$("#mic").removeClass("fa-microphone-slash")
 				   .addClass("fa-microphone");
+
+			$("#micContainer").css("color", "red");
 		});
 	})
 	.catch(console.log("permission exception caught"));
@@ -82,6 +84,10 @@ function naturalLang(transcript){
 	request.onreadystatechange = function (){
 		if (request.readyState === XMLHttpRequest.DONE) {
 			console.log(request.responseText);
+			updateUI(function (){
+				$("#prompt").css("display", "none");
+				$("#player").css("display", "block");
+			});
 
 		} else {
 			// Not ready yet.
@@ -103,6 +109,8 @@ function toggleRecording(){
 		updateUI(function (){
 			$("#mic").removeClass("fa-microphone")
 			         .addClass("fa-microphone-slash");
+
+			$("#micContainer").css("color", "black");
 		});
 		
 		recordRTC.stopRecording(function(audioURL) {

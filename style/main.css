@@ -8,12 +8,20 @@ html {
 }
 
 body {
-	width = 100vh;
-	height = 100vh;
+	position: relative;
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
 }
 
 p {
         font-size: 6.25em;
+}
+
+section {
+	width: auto;
+	transition: all 0.5s linear 0s;
+	margin: auto;
 }
 
 #prompt{
@@ -24,9 +32,17 @@ p {
 #start {
 	cursor: pointer;
 	display: show;
-	transition: color 0.5 ease-in 0;
+}
+#micContainer{
+	transition: color 0.5s linear 0s;
 }
 
 #player {
-	display: show;
+	display: none;
+	transition: all 0.5s linear 0s;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
 }
