@@ -5,6 +5,7 @@
 <head>
         <title>NLPlay</title>
         <link rel="stylesheet" type="text/css" href="style/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
         <script src="scripts/require.js"></script>
@@ -19,16 +20,21 @@
         <link rel="manifest" href="assets/manifest.json">
         <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="theme-color" content="#ffffff">
+
 </head>
 
 
 <body onLoad="onLoad()">
 
+        <section id="prompt">
         <p>
                 How is your day, BRO?
         </p>
-        <button id="start">start</button>
-        <button id="stop">stop</button>
+        <span class="fa-stack fa-lg" id="start">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-microphone-slash fa-stack-1x fa-inverse" id="mic"></i>
+        </span>
+        <section>
         <div id="player">
         <iframe src="https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
         </div>
