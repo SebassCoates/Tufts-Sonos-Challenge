@@ -30,11 +30,13 @@ function speechRecognition(){
 			$("#micContainer").css("color", "red");
 		});
 	})
-	.catch(console.log("permission exception caught")){
-		console.log("IN CONTROL BLOCK");
-	}
+	.catch(getKeyboardText())
 }
 
+function getKeyboardText(){
+	document.getElementById('input').style.visibility = "visible";
+	document.getElementById('button').style.visibility = "visible";
+}
 
 function getTranscription(newVoice){
 	console.log("starting upload");
@@ -69,6 +71,40 @@ function getTranscription(newVoice){
 }
 
 function naturalLang(transcript){
+	var request = new XMLHttpRequest();
+
+	request.open("POST",
+	 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' 
+	 + API_KEY,
+	  true)
+	
+	request.send(JSON.stringify({
+		  "encodingType": "UTF8",
+		  "document": {
+			    "type": "PLAIN_TEXT",
+			    "content": transcript
+		  }
+	}));
+
+	request.onreadystatechange = function (){
+		if (request.readyState === XMLHttpRequest.DONE) {
+			result = request.responseText;
+			console.log(result);
+			updateUI(function (){
+				pickSong(result);
+				$("#prompt").css("display", "none");
+				$("#player").css("display", "block");
+			});
+
+		} else {
+			// Not ready yet.
+		}	
+	}
+}
+
+function naturalLang(){
+	transcript = document.getElementById('usertext').value;
+
 	var request = new XMLHttpRequest();
 
 	request.open("POST",
