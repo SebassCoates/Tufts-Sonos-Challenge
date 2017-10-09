@@ -12,4 +12,4 @@
 ## Team
 
  * Sebastian Coates
- * [Kevin Destin](https:github.com/kedestin)
+ * [Kevin Destin](https://www.github.com/kedestin)
