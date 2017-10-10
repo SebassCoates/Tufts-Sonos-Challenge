@@ -180,13 +180,11 @@ function pickSong(responseText){
         sentiment = json.documentSentiment.score;
         if (sentiment < 0) {
                 document.getElementById('player').src=SONG_DICT["negative"];
-                document.body.style.backgroundImage = 'none';
-                document.body.style.backgroundImage = "url('assets/sadbg.jpg')";
+                document.html.style.backgroundImage = "url('assets/sadbg.jpg')";
 
         } else {
                 document.getElementById('player').src=SONG_DICT["positive"];
-                document.body.style.backgroundImage = 'none';
-                document.body.style.backgroundImage = "url('assets/happybg.jpg')";
+                document.html.style.backgroundImage = "url('assets/happybg.jpg')";
         }
 }
 
