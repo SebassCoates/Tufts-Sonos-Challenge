@@ -102,7 +102,7 @@ function naturalLang(transcript){
 		}	
 	}
 }
-
+/*
 function naturalLang(){
 	transcript = document.getElementById('usertext').value;
 
@@ -136,6 +136,7 @@ function naturalLang(){
 		}	
 	}
 }
+*/
 
 function updateUI(func){
 	func();
@@ -184,6 +185,7 @@ function pickSong(responseText){
 
         } else {
                 document.getElementById('player').src=SONG_DICT["positive"];
+                document.body.style.backgroundImage = none;
                 document.body.style.backgroundImage = "url('assets/happybg.jpg')";
         }
 }
