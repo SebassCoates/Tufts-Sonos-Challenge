@@ -20,6 +20,10 @@ input {
         visibility: hidden;
 }
 
+#start {
+        text-align: center;
+}
+
 body {
 	position: relative;
 	text-align: center;
