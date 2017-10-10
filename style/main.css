@@ -9,6 +9,7 @@ html {
         background-image: url('defaultbg.jpg');
 
         background-size: 100%, 100%;
+        background-repeat: no-repeat;
 }
 
 button {
@@ -20,9 +21,6 @@ input {
         visibility: hidden;
 }
 
-#start {
-        text-align: center;
-}
 
 body {
 	position: relative;
