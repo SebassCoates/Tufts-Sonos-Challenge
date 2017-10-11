@@ -30,7 +30,7 @@ function speechRecognition(){
 			$("#micContainer").css("color", "red");
 		});
 	})
-	.catch(getKeyboardText())
+	.catch(console.log("please enable microphone"))
 }
 
 function getKeyboardText(){
@@ -102,41 +102,7 @@ function naturalLang(transcript){
 		}	
 	}
 }
-/*
-function naturalLang(){
-	transcript = document.getElementById('usertext').value;
 
-	var request = new XMLHttpRequest();
-
-	request.open("POST",
-	 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' 
-	 + API_KEY,
-	  true)
-	
-	request.send(JSON.stringify({
-		  "encodingType": "UTF8",
-		  "document": {
-			    "type": "PLAIN_TEXT",
-			    "content": transcript
-		  }
-	}));
-
-	request.onreadystatechange = function (){
-		if (request.readyState === XMLHttpRequest.DONE) {
-			result = request.responseText;
-			console.log(result);
-			updateUI(function (){
-				pickSong(result);
-				$("#prompt").css("display", "none");
-				$("#player").css("display", "block");
-			});
-
-		} else {
-			// Not ready yet.
-		}	
-	}
-}
-*/
 
 function updateUI(func){
 	func();
@@ -178,13 +144,23 @@ function pickSong(responseText){
         json = JSON.parse(responseText);
         console.log(json);        
         sentiment = json.documentSentiment.score;
+        
+        updateUI(function(){
+                $("#playerSection").css("display", "block");
+                $("#playerSection").fadeTo(0,0);
+        });
+
         if (sentiment < 0) {
                 document.getElementById('player').src=SONG_DICT["negative"];
-                document.body.style.backgroundImage = "url('assets/sadbg.jpg')";
+                $("#playerSection").css("backgroundImage", "url('assets/sadbg.jpg')");
 
         } else {
                 document.getElementById('player').src=SONG_DICT["positive"];
-                document.body.style.backgroundImage = "url('assets/happybg.jpg')";
+                $("#playerSection").css("backgroundImage", "url('assets/happybg.jpg')");
         }
+        
+        updateUI(function(){
+                $("#playerSection").fadeTo(1500,1);
+        });
 }
 

@@ -1,6 +1,12 @@
+* {
+        padding: 0;
+        margin: 0;
+        font-size: 16px; 
+}
+
 html {
-        font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,
-        Helvetica Neue, Arial,sans-serif;
+        font-family: Segoe UI,Frutiger,Frutiger Linotype,
+        Dejavu Sans, Helvetica Neue, Arial,sans-serif;
         
         text-align: center;
         padding: 0;
@@ -10,31 +16,26 @@ html {
 }
 
 body {
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-repeat: no-repeat;
-}
-
-button {
-        visibility: hidden;
-        text-align: center;
-}
-
-input {
-        visibility: hidden;
-}
-
-
-body {
-	position: relative;
-	text-align: center;
+        position: relative;
 	width: 100vw;
 	height: 100vh;
 }
 
-p 
-{        font-size: 6.25em;
+input {
+        display: none;
+}
+
+button {
+        display: none;
+}
+
+section {
+        width: inherit;
+        height: inherit;
+}
+
+p {        
+        font-size: 6.25rem;
         font-weight: 800;
         color: black;
         text-shadow:
@@ -42,17 +43,8 @@ p
         1px -1px 0 #fff,
         -1px 1px 0 #fff,
         1px 1px 0 #fff; 
-}
-
-section {
-	width: auto;
-	transition: all 0.5s linear 0s;
-	margin: auto;
-}
-
-#prompt{
-	height:inherit;
-	width:inherit;
+        margin: 0 auto;
+        padding: 6rem 0rem;
 }
 
 #start {
@@ -70,5 +62,13 @@ section {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+}
 
+#playerSection {
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        display: none;
 }
