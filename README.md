@@ -1,15 +1,22 @@
-# NL Play
-###### Submission for Tufts' Sonos Challenge 2017 
+# Sentimental Listening
 
 ## What is it?
 
-> This is a demo exhibiting one way to use speakers to improve someone's daily life.
+> A speaker experience that uses sentiment analysis to curate appropriate music based on the users' mood
+
+## How to use?
+
+ * Clone this repository and launch the website by opening "index.html"
+ * Click on the microphone icon to start recording
+ * Say how you are feeling
+ * Click on the microphone to stop the recording
+ * Enjoy a playlist of music curated for you
 
 ## How does it work?
 
-> The speaker asks how the user's day has been, and uses Google's speech api and natural language api to query the perfect song from Spotify.
+> The project takes advantage of Google's Cloud REST APIs for Speech and Natural Language to handle voice to speech and sentiment analysis. Music is provided by a Spotify embedded player. 
 
 ## Team
 
- * Sebastian Coates
+ * [Sebastian Coates](https://www.github.com/sebasscoates)
  * [Kevin Destin](https://www.github.com/kedestin)
