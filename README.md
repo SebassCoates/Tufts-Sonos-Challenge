@@ -6,7 +6,7 @@
 
 ## How to use?
 
- * Clone this repository and launch the website by opening "index.html"
+ * Clone this repository and use [google chrome](https://www.google.com/chrome/) to open "index.html" 
  * Click on the microphone icon to start recording
  * Say how you are feeling
  * Click on the microphone to stop the recording
